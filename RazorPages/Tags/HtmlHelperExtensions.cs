@@ -33,5 +33,20 @@ namespace RazorPages.Tags
 
             return divTag;
         }
+
+        public static HtmlTag ValidationDiv(this IHtmlHelper helper)
+        {
+            var outerDiv = new HtmlTag("div")
+                .Id("validationSummary")
+                .AddClass("validation-summary-valid")
+                .Data("valmsg-summary", true);
+
+            var ul = new HtmlTag("ul");
+            ul.Add("li", li => li.Style("display", "none"));
+
+            outerDiv.Children.Add(ul);
+
+            return outerDiv;
+        }
     }
 }

@@ -16,6 +16,12 @@
 
 @Html.FormBlock(x => x.Data.IsHere)
 
+@Html.FormBlock(x => x.Data.CurrentDate, inputModifier: input => input.AddClass("mt-1 block w-full"))
+
+@Html.FormBlock(x => x.Data.EmptyDate, inputModifier: input => input.AddClass("mt-1 block w-full"))
+
+@Html.FormBlock(x => x.Data.IsHere, inputModifier: input => input.AddClass("rounded border-black-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"))
+
 <div x-data="{ open: false }">
     @*<button @@click="open = true">Expand</button>*@
     @Html.PrimaryButton("Click to Show content", buttonModifier: modifier => modifier.Attr("@click", "open = true"))
@@ -23,6 +29,8 @@
         Content...
     </span>
 </div>
+
+
 
 
 @*<table style="width:100%">
