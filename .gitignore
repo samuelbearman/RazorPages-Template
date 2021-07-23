@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+## Tailwind Css
+*/wwwroot/css/styles.css
+
+
 # User-specific files
 *.rsuser
 *.suo
@@ -348,3 +352,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+

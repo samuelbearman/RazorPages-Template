@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+    Button
+</button>
+
+@Html.PrimaryButton("Hello", style: "bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full")
+
+@Html.SecondaryButton("World")
+
+@Html.FormBlock(x => x.Data.Name)
+
+@Html.FormBlock(x => x.Data.IsHere)
+
+<div x-data="{ open: false }">
+    @*<button @@click="open = true">Expand</button>*@
+    @Html.PrimaryButton("Click to Show content", buttonModifier: modifier => modifier.Attr("@click", "open = true"))
+    <span x-show="open">
+        Content...
+    </span>
+</div>
+
+
+@*<table style="width:100%">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>94</td>
+        </tr>
+    </table>*@ 
