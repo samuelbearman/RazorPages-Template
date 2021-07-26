@@ -1,5 +1,6 @@
-﻿import Alpine from 'alpinejs'
+﻿import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
 
-window.Alpine = Alpine
-
-Alpine.start()
+const application = Application.start()
+const context = require.context("../wwwroot/js", true, /\.js$/)
+application.load(definitionsFromContext(context))

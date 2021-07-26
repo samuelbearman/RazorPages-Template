@@ -22,15 +22,12 @@
 
 @Html.FormBlock(x => x.Data.IsHere, inputModifier: input => input.AddClass("rounded border-black-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"))
 
-<div x-data="{ open: false }">
-    @*<button @@click="open = true">Expand</button>*@
-    @Html.PrimaryButton("Click to Show content", buttonModifier: modifier => modifier.Attr("@click", "open = true"))
-    <span x-show="open">
-        Content...
-    </span>
+
+
+<div data-controller="hello">
+    <input data-hello-target="name" type="text">
+    <button data-action="click->hello#greet">Greet</button>
 </div>
-
-
 
 
 @*<table style="width:100%">
