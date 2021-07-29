@@ -24,8 +24,8 @@ namespace RazorPages.Pages
         {
             public string Name { get; set; }
             public bool IsHere { get; set; }
-            public DateTime CurrentDate { get; set; } = DateTime.Now;
-            public DateTime EmptyDate { get; set; }
+            public DateTime? CurrentDate { get; set; } = DateTime.Now;
+            public DateTime? EmptyDate { get; set; }
 
         }
 
