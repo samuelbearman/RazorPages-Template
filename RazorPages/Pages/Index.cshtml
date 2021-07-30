@@ -4,54 +4,21 @@
     ViewData["Title"] = "Home page";
 }
 
-<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-    Button
-</button>
+@Html.PrimaryButton("Hello", buttonModifier: modifier => modifier.AddClass("space-2"))
 
-@Html.PrimaryButton("Hello", style: "bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full")
-
-@Html.SecondaryButton("World")
-
-@Html.FormBlock(x => x.Data.Name)
-
-@Html.FormBlock(x => x.Data.IsHere)
-
-<input type="date" asp-for="Data.CurrentDate"/>
-
-@Html.FormBlock(x => x.Data.CurrentDate, inputModifier: input => input.AddClass("mt-1 block w-full"))
-
-@Html.FormBlock(x => x.Data.EmptyDate, inputModifier: input => input.AddClass("mt-1 block w-full"))
-
-@Html.FormBlock(x => x.Data.IsHere, inputModifier: input => input.AddClass("rounded border-black-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"))
+@Html.SecondaryButton("World", buttonModifier: modifier => modifier.AddClass("space-2"))
 
 
 
 <div data-controller="hello">
     <input data-hello-target="name" type="text">
 
-    <button data-action="click->hello#greet">
+    @*<button data-action="click->hello#greet">
         Greet
-    </button>
+    </button>*@
+
+    @Html.SecondaryButton("Greet", buttonModifier: modifier => modifier.AddClass("space-2").Attr("data-action", "click->hello#greet"))
 
     <span data-hello-target="output">
     </span>
 </div>
-
-
-@*<table style="width:100%">
-        <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Age</th>
-        </tr>
-        <tr>
-            <td>Jill</td>
-            <td>Smith</td>
-            <td>50</td>
-        </tr>
-        <tr>
-            <td>Eve</td>
-            <td>Jackson</td>
-            <td>94</td>
-        </tr>
-    </table>*@ 
