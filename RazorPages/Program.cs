@@ -18,7 +18,7 @@ namespace RazorPages
                     webBuilder.UseStartup<Startup>();
                     webBuilder.ConfigureLogging((hostingContext, logging) =>
                     {
-                        logging.AddSerilog(hostingContext);
+                        //logging.AddSerilog(hostingContext);
                     });
                 });
     }

@@ -1,12 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="~/">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RazorPages</title>
     <link rel="stylesheet" href="~/css/styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
 </head>
 <body>
@@ -20,7 +19,9 @@
 
 
     <mini-profiler position="@RenderPosition.Right" max-traces="5" color-scheme="ColorScheme.Auto" nonce="45" />
-    <script src="~/js/bundle.js"></script>
+
+    <script src="_framework/blazor.server.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>

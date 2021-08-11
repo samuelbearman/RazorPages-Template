@@ -1,24 +1,8 @@
 ﻿@page
+@using RazorPages.Components
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-@Html.PrimaryButton("Hello", buttonModifier: modifier => modifier.AddClass("space-2"))
-
-@Html.SecondaryButton("World", buttonModifier: modifier => modifier.AddClass("space-2"))
-
-
-
-<div data-controller="hello">
-    <input data-hello-target="name" type="text">
-
-    @*<button data-action="click->hello#greet">
-        Greet
-    </button>*@
-
-    @Html.SecondaryButton("Greet", buttonModifier: modifier => modifier.AddClass("space-2").Attr("data-action", "click->hello#greet"))
-
-    <span data-hello-target="output">
-    </span>
-</div>
+<component type="typeof(Counter)" render-mode="ServerPrerendered" />

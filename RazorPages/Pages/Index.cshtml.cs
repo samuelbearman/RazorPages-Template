@@ -33,7 +33,6 @@ namespace RazorPages.Pages
         public void OnGet()
         {
             Data = new Result();
-            Directory.GetFiles("dsafdsdfdsf");
         }
     }
 }
