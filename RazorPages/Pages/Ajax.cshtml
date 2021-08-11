@@ -1,0 +1,22 @@
+﻿@page "{handler?}"
+@model RazorPages.Pages.AjaxModel
+@{
+}
+
+
+<h2>Ajax Partial Example</h2>
+<p><button class="btn btn-primary" id="load">Load</button></p>
+<div id="grid"></div>
+@section scripts{
+    <script>
+        document.getElementById('load').addEventListener('click', () => {
+            fetch('/ajax/data')
+                .then((response) => {
+                    return response.json()
+                })
+                .then((result) => {
+                    console.log(result)
+                });
+        });
+    </script>
+}
