@@ -22,16 +22,16 @@ namespace RazorPages
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddServerSideBlazor();
+            //services.AddServerSideBlazor();
 
             services.AddHtmlTags(new TagConventions());
 
             services.AddMiniProfiler();
 
-            services.AddMvc(config =>
-            {
-                config.Filters.Add(new LoggingExceptionHandlerFilterAttribute());
-            });
+            //services.AddMvc(config =>
+            //{
+            //    config.Filters.Add(new LoggingExceptionHandlerFilterAttribute());
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,8 +61,8 @@ namespace RazorPages
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapBlazorHub();
-                endpoints.MapFallbackToPage("/_Host");
+                //endpoints.MapBlazorHub();
+                //endpoints.MapFallbackToPage("/_Host");
             });
         }
     }

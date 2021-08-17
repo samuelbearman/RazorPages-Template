@@ -1,0 +1,50 @@
+﻿@page "{handler?}"
+@model RazorPages.Pages.DynamicModel
+@{
+}
+
+
+<button id="load">
+    @Html.AntiForgeryToken()
+    Add Line Item
+</button>
+
+<form id="formData" method="post">
+
+    <label asp-for="@Model.Data.Name"></label>
+    <input asp-for="@Model.Data.Name" />
+    <br />
+
+    <div id="itemsContainer">
+        <partial name="_LineItemsEditor" for="Data" />
+    </div>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('#load').on('click', function (evt) {
+                evt.preventDefault();
+                var data = $('#formData').serialize();
+
+                $.ajax({
+                    type: "POST",
+                    headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+                    url: 'dynamic?handler=AddItem',
+                    contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                    data: data,
+                    success: function (data) {
+                        $('#itemsContainer').html(data)
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.log(thrownError)
+                    } 
+                })
+            });
+        });
+    </script>
+}

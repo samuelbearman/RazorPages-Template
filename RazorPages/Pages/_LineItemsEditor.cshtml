@@ -1,0 +1,12 @@
+﻿@model RazorPages.Pages.DynamicModel.Command
+@{ ViewData.TemplateInfo.HtmlFieldPrefix = "Data"; }
+
+@for (int i = 0; i < Model.LineItems.Count(); i++)
+{
+    <label asp-for="@Model.LineItems[i].Name"></label>
+    <input asp-for="@Model.LineItems[i].Name" />
+
+    <label asp-for="@Model.LineItems[i].Value"></label>
+    <input asp-for="@Model.LineItems[i].Value" />
+    <br />
+}
